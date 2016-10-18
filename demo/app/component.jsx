@@ -1,22 +1,36 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-class Hello extends React.Component {
-	render() {
-		return <h1>Hello, comlewod</h1>;
+var NewTemp = React.createClass({
+	getInitialState: function(){
+		return {
+			name: 'comlewod'
+		};
+	},
+	handleClick: function(){
+		this.setProps({
+			name: 'koala'
+		});
+	},
+	render: function(){
+		return (
+		<div onClick={this.handleClick}>
+			<Name name={this.props.name} />
+		</div>
+		);
+	},
+});
+
+var Name = React.createClass({
+	render: function(){
+		return (
+			<div>{this.props.name}</div>
+		);
 	}
-}
-
-//ReactDom.render(<Hello />, document.getElementById('app'));
-
-var arr = [
-	'<div>123</div>',
-	'<span>ahha</span>'
-];
+});
 
 ReactDom.render(
-	<div>
-	{arr}
-	</div>,
-	document.getElementById('app')
+	<NewTemp name="comlewod"></NewTemp>,
+	document.getElementById('wrap_header')
 );
+

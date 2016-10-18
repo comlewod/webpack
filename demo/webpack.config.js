@@ -23,5 +23,11 @@ module.exports = {
 		path: path.resolve(__dirname, 'build'),
 		filename: 'bundle.js',
 	},
-	//plugins: [new htmlWebpackPlugin], //新生成html文件
+	plugins: [
+		// 使用模板
+		new htmlWebpackPlugin({
+			title: 'DEMO',
+			template: 'app/template.html',
+		})
+	],
 };
